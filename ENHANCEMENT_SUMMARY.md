@@ -141,7 +141,7 @@ With both toggles OFF (default):
 
 ### To Remove an Analyst:
 1. Click "Remove Analyst" button
-2. Enter OID when prompted (or it uses selected analyst)
+2. Enter OID when prompted
 3. Confirm removal
 4. Analyst removed from all tracking
 
