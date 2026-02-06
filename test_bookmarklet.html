@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarklet Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .bookmarklet-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .bookmarklet-link:hover {
+            opacity: 0.9;
+        }
+        .instructions {
+            background: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #2196F3;
+            margin: 20px 0;
+        }
+        .features {
+            margin: 20px 0;
+        }
+        .feature-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f9f9f9;
+            border-left: 3px solid #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Shankar Satpati Tracker - Enhanced Bookmarklet Test</h1>
+        
+        <div class="instructions">
+            <h3>📝 How to Test:</h3>
+            <ol>
+                <li><strong>Drag this link to your bookmarks bar:</strong>
+                    <br><a href="" class="bookmarklet-link" id="bookmarklet-link">🔥 SST Tracker</a>
+                </li>
+                <li>Click the bookmark to launch the tracker</li>
+                <li>Test the new features listed below</li>
+            </ol>
+        </div>
+
+        <div class="features">
+            <h3>✨ New Features Added:</h3>
+            <div class="feature-item">
+                <strong>1. Pod Map & getPodLead() Function</strong>
+                <p>Fixed mapping of OID to Pod Lead (O38844→Gautham, O16907→Srigandh, O36952→Himanshu)</p>
+            </div>
+            <div class="feature-item">
+                <strong>2. Settings Toggles</strong>
+                <p>• includePodLeadInExports - adds PodLead column in CSV exports<br>
+                   • includePodLeadInCopyLogs - appends "[Lead: Name]" to copy log entries</p>
+            </div>
+            <div class="feature-item">
+                <strong>3. Remove Analyst Function</strong>
+                <p>Idempotent function to remove an analyst from tracking (accessible via 🗑️ Remove button when viewing individual analyst)</p>
+            </div>
+            <div class="feature-item">
+                <strong>4. Copy Queue + Names Button</strong>
+                <p>New "📋 Queue+Names" button groups analysts by queue state without including lead info</p>
+            </div>
+            <div class="feature-item">
+                <strong>5. Conditional Pod Lead in Exports</strong>
+                <p>Export CSV conditionally includes PodLead column based on settings toggle</p>
+            </div>
+            <div class="feature-item">
+                <strong>6. Conditional Pod Lead in Copy Logs</strong>
+                <p>Copy operations conditionally append lead info like "[Lead: Gautham Leeladhar Kunder]"</p>
+            </div>
+        </div>
+
+        <h3>🧪 Test Checklist:</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Test Action</th>
+                <th>Expected Result</th>
+            </tr>
+            <tr>
+                <td>Pod Lead Settings</td>
+                <td>Open Settings (⚙️) → Check "🏆 Pod Lead in Exports" and "🏆 Pod Lead in Logs"</td>
+                <td>Settings should save and persist on reload</td>
+            </tr>
+            <tr>
+                <td>Export with Pod Lead</td>
+                <td>Enable "Pod Lead in Exports" → Export data</td>
+                <td>CSV should have PodLead column showing lead names for O38844, O16907, O36952</td>
+            </tr>
+            <tr>
+                <td>Copy Logs with Lead</td>
+                <td>Enable "Pod Lead in Logs" → Copy any log (Stuck/Skip/etc)</td>
+                <td>Entries should append "[Lead: Name]" for pod leads</td>
+            </tr>
+            <tr>
+                <td>Queue + Names</td>
+                <td>Click "📋 Queue+Names" button in Queue Distribution section</td>
+                <td>Should copy snapshot grouped by queue (FILTER_PF, FILTER, etc.) with names</td>
+            </tr>
+            <tr>
+                <td>Remove Analyst</td>
+                <td>Click analyst → Click "🗑️ Remove" button</td>
+                <td>Should remove analyst from tracking and refresh UI</td>
+            </tr>
+            <tr>
+                <td>Backward Compatibility</td>
+                <td>Test with old state/settings</td>
+                <td>Should load properly with default values for new settings</td>
+            </tr>
+        </table>
+
+        <h3>⚙️ Technical Details:</h3>
+        <ul>
+            <li>Original size: 159,029 bytes</li>
+            <li>Enhanced size: 162,531 bytes (3,502 bytes added)</li>
+            <li>Single-line bookmarklet format maintained</li>
+            <li>No changes to existing detection, threshold, or monitoring logic</li>
+            <li>All new features are backward compatible</li>
+        </ul>
+
+        <!-- Mock table for testing on this page -->
+        <h3>📊 Mock Payment Queue Table (for testing):</h3>
+        <table id="fmf-table-column-holder-title-cell">
+            <thead>
+                <tr>
+                    <th id="fmf-table-column-state-title-cell">State</th>
+                    <th id="fmf-table-column-holder-title-cell">Holder</th>
+                    <th>Payment ID</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FILTER_PF</td>
+                    <td>O38844</td>
+                    <td>P12345</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>FILTER</td>
+                    <td>O16907</td>
+                    <td>P12346</td>
+                    <td>$200</td>
+                </tr>
+                <tr>
+                    <td>RELEASE1</td>
+                    <td>O36952</td>
+                    <td>P12347</td>
+                    <td>$150</td>
+                </tr>
+                <tr>
+                    <td>Queue</td>
+                    <td>O36981</td>
+                    <td>P12348</td>
+                    <td>$300</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Load bookmarklet code and create bookmarklet link
+        fetch('best_version_fixed_threshold.txt')
+            .then(response => response.text())
+            .then(code => {
+                document.getElementById('bookmarklet-link').href = code.trim();
+                console.log('Bookmarklet loaded successfully');
+            })
+            .catch(err => {
+                console.error('Error loading bookmarklet:', err);
+                alert('Failed to load bookmarklet file');
+            });
+    </script>
+</body>
+</html>
